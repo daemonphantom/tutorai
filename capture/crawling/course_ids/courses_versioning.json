@@ -1,0 +1,27 @@
+{
+  "courses": [
+    {
+      "title": "Einführung in die Programmierung",
+      "semesters": [
+        { "course_id": "30422", "semester": "WiSe 2022/23" },
+        { "course_id": "40280", "semester": "WiSe 2024/25" },
+        { "course_id": "43321", "semester": "WiSe 2025/26" }
+        
+      ]
+    },
+    {
+      "title": "Informationssysteme und Datenanalyse",
+      "semesters": [
+        { "course_id": "37805", "semester": "SoSe 2024" },
+        { "course_id": "42290", "semester": "SoSe 2025" }
+      ]
+    },
+    {
+      "title": "Wirtschaftspolitik (AVWL III)",
+      "semesters":[ 
+        {"course_id": "42242","semester": "SoSe 2025"},
+        {"course_id": "31475","semester": "WiSe 2022/23"}
+      ]
+    }
+  ]
+}

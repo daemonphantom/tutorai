@@ -1,0 +1,32 @@
+# TutorAI - Python dependencies (tested with Python 3.11)
+# Non-Python requirements (install separately, see README):
+#   - Neo4j Community 5.x (needs Java 21)
+#   - Ollama (recent version; gpt-oss:20b needs the latest)
+#   - MongoDB via Docker (src/interface/docker-compose.yml)
+#   - ffmpeg (for whisper transcription)
+#   - Google Chrome (for the Selenium crawler)
+
+# --- capture: crawling ---
+selenium>=4.20
+selenium-wire==5.1.0
+blinker==1.7.0  # required by selenium-wire but not declared in its dependencies
+requests>=2.32
+python-dotenv>=1.1
+beautifulsoup4>=4.13
+Pillow>=11.2
+
+# --- capture: parsing (PDF -> markdown) ---
+docling
+
+# --- capture: transcription ---
+whisper-timestamped==1.15.8
+
+# --- knowledge graph + embeddings ---
+neo4j>=5.28
+sentence-transformers>=5.0
+numpy>=2.2
+
+# --- web app ---
+flask
+passlib
+pymongo

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/logo-book.png') }}">
+  <title>Discover TutorAI: Your Next-Level Educational Partner</title>
+  <style>
+    .header-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      max-width: 800px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .logo {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      margin-right: 20px;
+    }
+
+    .main-title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #141414;
+      margin: 0;
+    }
+
+    /* Content section styling */
+    .landing-content {
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .landing-content h2 {
+      color: #141414;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .landing-content p {
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    .feature-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      margin-bottom: 15px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-left: 5px solid rgb(181, 42, 41);
+      border-radius: 5px;
+    }
+
+    .landing-content a {
+      color: rgb(181, 42, 41);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .landing-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* FAQ section spacing */
+    .faq-section {
+      margin-top: 0px;
+    }
+
+    /* FAQ title styling to match landing content h2 */
+    .faq-title {
+      color: #141414;
+      margin-bottom: 30px;
+      font-weight: 600;
+      font-size: 2rem;
+      text-align: left;
+    }
+
+    /* FAQ container styling */
+    .faq-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+    }
+
+    /* FAQ bot-bubble styling */
+    .faq-container .bot-bubble {
+      background-color: #ffff !important;
+    }
+
+    /* FAQ bot-bubble links */
+    .faq-container .bot-bubble a {
+      color: rgb(181, 42, 41);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .faq-container .bot-bubble a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer styling - similar to chat input box */
+    .landing-footer {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+      text-align: center;
+      color: #141414;
+    }
+
+    .landing-footer p {
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+
+    .landing-footer a {
+      color: rgb(181, 42, 41);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .landing-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .landing-footer small {
+      color: #666;
+      font-size: 0.875rem;
+    }
+
+    /* Dark mode adjustments for landing content */
+    body.dark-mode .landing-content {
+      background-color: #212121;
+      color: #ffffff;
+    }
+
+    body.dark-mode .landing-content h2 {
+      color: #ffffff;
+    }
+
+    body.dark-mode .landing-content a {
+      color: rgb(212, 137, 143);
+    }
+
+    body.dark-mode .feature-list li {
+      background: #2F2F2F;
+      color: #ffffff;
+    }
+
+    body.dark-mode .main-title {
+      color: #ffff;
+    }
+
+    /* Dark mode adjustments for FAQ container */
+    body.dark-mode .faq-container {
+      background-color: #212121;
+      color: #ffffff;
+    }
+
+    /* Dark mode adjustments for FAQ bot-bubble */
+    body.dark-mode .faq-container .bot-bubble {
+      background-color: #1d1d1d !important;
+      color: #f6f2f2;
+    }
+
+    /* Dark mode adjustments for FAQ bot-bubble links */
+    body.dark-mode .faq-container .bot-bubble a {
+      color: rgb(212, 137, 143);
+    }
+
+    /* Dark mode adjustments for FAQ title */
+    body.dark-mode .faq-title {
+      color: #ffffff;
+    }
+
+    /* Dark mode adjustments for footer */
+    body.dark-mode .landing-footer {
+      background-color: #212121;
+      color: #ffffff;
+    }
+
+    body.dark-mode .landing-footer a {
+      color: rgb(212, 137, 143);
+    }
+
+    body.dark-mode .landing-footer small {
+      color: #cccccc;
+    }
+
+    /* Responsive design*/
+    @media (max-width: 768px) {
+      .header-section {
+        flex-direction: column;
+        margin-bottom: 15px;
+      }
+
+      .logo {
+        width: 100px;
+        height: 100px;
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+
+      .main-title {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .landing-content {
+        margin: 0 15px 20px 15px;
+        padding: 20px;
+      }
+
+      .faq-container {
+        margin: 20px 15px;
+        padding: 20px;
+      }
+
+      .landing-footer {
+        margin: 20px 15px;
+        padding: 15px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container py-5 px-4">
+  <div id="settings-overlay"></div>
+  
+  <!-- Header Section -->
+  <div class="header-section">
+    <img src="{{ url_for('static', filename='images/logo-book.png') }}" alt="TutorAI Logo" class="logo">
+    <h1 class="main-title">Empower Your Learning</h1>
+  </div>
+
+  <!-- Landing Content -->
+  <div class="landing-content">
+    <h2>Why TutorAI?</h2>
+    <p>
+      At TutorAI, we don't just offer a service — we offer a transformative educational experience. Powered by the advanced LLaMa3 model, TutorAI customizes your learning to fit your unique style and pace. Imagine an academic partner that knows exactly what you need, even before you do!
+    </p>
+
+    <h2>Explore Our Features</h2>
+    <ul class="feature-list">
+      <li><strong>Personalized Tutoring:</strong> Experience learning designed just for you, adapting in real time to your progress.</li>
+      <li><strong>Question Answering:</strong> Get instant, detailed explanations for any academic question, anytime.</li>
+      <li><strong>Rubber Ducking Partner:</strong> Develop your ideas through dynamic conversations with TutorAI—your new brainstorm buddy.</li>
+    </ul>
+
+    <h2>Easy to Use</h2>
+    <p>
+      Want to start improving your learning process? Start right away <a href="http://108.181.203.191:5000/">HERE!</a>
+    </p>
+
+    <h2>Join the Educational Revolution</h2>
+    <p>
+      Ready to revolutionize the way you learn? <a href="https://github.com/Programmierpraktikum-MVA/tutor_ai" target="_blank">Get started with TutorAI today!</a>
+    </p>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="faq-container">
+    <div class="faq-section">
+      <h2 class="faq-title">Hilfeseite</h2>
+      <div class="card">
+        <div class="card-header faq-header user-bubble" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <h5 class="mb-0">Warum antwortet mir TutorAI nicht?</h5>
+        </div>
+        <div id="collapseOne" class="collapse">
+          <div class="card-body bot-bubble">
+            - TutorAI bezieht seine Daten von den ISIS-Seiten der jeweiligen Module. Wenn Fragen gestellt werden, von denen die Antworten 
+            nicht auf ISIS stehen, kann TutorAI diese nicht adequat beantworten. <br>
+            - TutorAI sucht die Antworten zu den Fragen anhand von Stichwörtern in den Fragen. Wenn eine Frage gestellt wird, die nicht sehr genau ist,
+            kann TutorAI diese nicht genau beantworten. Wenn eine Frage nicht ordentlich beantwortet wurde,bzw. gewünschte Informationen nicht in der Antwort enthalten sind,
+            kann es deshalb helfen, diese genauer zu formulieren.
+          </div>
+        </div>
+        <div class="card-header faq-header user-bubble" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <h5 class="mb-0">Was ist TutorAI?</h5>
+        </div>
+        <div id="collapseTwo" class="collapse">
+          <div class="card-body bot-bubble">
+            TutorAI ist ein Chatbot, der für die Studenten an der TU_berlin entwickelt wurde. Er bezieht seine Daten von denn ISIS-Seiten der
+            Module. Somit hat er alle Informationen über Termine, Räume und Personen, die auf den Seiten stehen. Er verleichtert das Suchen 
+            nach diesen Informationen und entlastet die Studierenden und wissenschaftlichen Mitarbeiter der Universität.<br>
+            Entwickelt wurde TutorAI in einem Programmierpraktikum von Studenten selbst. Auch wird er stetig überarbeitet und an die Bedürfnisse
+            der Studierenden angepasst.  
+          </div>
+        </div>
+        <div class="card-header faq-header user-bubble" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <h5 class="mb-0">Kann man TutorAI auch über andere Wege nutzen?</h5>
+        </div>
+        <div id="collapseThree" class="collapse">
+          <div class="card-body bot-bubble">
+            Ja, wir haben auch einen Matrix-Bot implementiert, der mithilfe von TutorAI Fragen in einem beliebigen Matrix Chat beantworten kann. <br>
+            Um diesen zu nutzen muss man nur in einem unverschlüsselten Matrix-Chat "@tutorai:matrix.org" einladen und dann mit dem Präfix "@TutorAI" die Frage stellen.
+            Nun muss man eventuell ein bisschen warten, je nach Komplexität der gestellten Frage dauert es etwas länger für unseren Bot diese zu beantworten.
+          </div>
+        </div>
+        <div class="card-header faq-header user-bubble" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          <h5 class="mb-0">Kontakt</h5>
+        </div>
+        <div id="collapseFour" class="collapse">
+          <div class="card-body bot-bubble">
+            <a href="mailto:durglishvili@campus.tu-berlin.de">David Durglishvili</a> <br> (Bachelorarbeit "TutorAI - Tracking Evolving Knowledge") <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <p>
+      TutorAI is a proud creation of TU Berlin students. For more details or to get involved, please contact <a href="mailto:durglishvili@campus.tu-berlin.de">David Durglishvili</a>.
+    </p>
+    <p>
+      <small>TutorAI © Distributed under the MIT License.</small>
+    </p>
+  </footer>
+</div>
+
+<!-- Settings Drawer -->
+<button id="settings-toggle"><i class="fa fa-caret-square-o-right"></i></button>
+<div id="settings-panel" class="settings-panel d-flex flex-column">
+  <div class="settings-content">
+    <div class="settings-header d-flex justify-content-between align-items-center">
+    <h3 id="set-menue">Menü</h3>
+    <img id="set-p-img" src="{{ url_for('static', filename='images/logo-book.png') }}" width="40" height="40">
+    <button id="settings-toggle2"><i class="fa fa-caret-square-o-left"></i></button>
+    </div>
+  <a href="{{ url_for('index') }}">
+  <button class="help-button bot-bubble"> Chat</button>
+  </a>
+  <div class="d-flex align-items-center" style="gap: 10px; margin-top: 10px;">
+    <button id="dark-mode-button" class="help-button bot-bubble" style="flex: 1; margin-top: 0; height: 35px; width: 50%; max-width: calc(50% - 5px);"> Dunkelmodus</button>
+    <select id="design-select" class="form-control bot-bubble" style="flex: 1; height: 35px; width: 50%; max-width: calc(50% - 5px); min-width: 0; line-height: 20px; text-align-last: center; display: flex; align-items: center; justify-content: center;">
+      <option value="design-3">Rot</option>
+      <option value="design-1">Grün</option>
+      <option value="design-2">Lila</option>
+      <option value="design-4">Blau</option>
+      <option value="design-5">Rosa</option>
+    </select>
+  </div>
+  </div>
+
+  <div class="logout-wrapper mt-auto">
+  <form action="/logout" method="POST">
+    <button  id="logoutButton" class="btn-34"><span>Ausloggen</span></button>
+  </form>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDzwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/theme-manager.js') }}"></script>
+</body>
+</html>

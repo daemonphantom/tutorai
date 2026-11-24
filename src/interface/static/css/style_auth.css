@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Header section with logo and title */
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  max-width: 430px; /* Match auth-wrapper width */
+  width: 100%;
+}
+
+.logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+}
+
+/* Unified title styling */
+.auth-title {
+  font-size: 5rem; /* Was 80px, now scales with user's font size */
+  font-weight: 700;
+  color: #7A2527;
+  margin: 0;
+}
+
+/* Unified wrapper for both login and registration */
+.auth-wrapper {
+  position: relative;
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  padding: 34px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.auth-wrapper h2 {
+  position: relative;
+  font-size: 1.375rem; /* Was 22px, now scales with user's font size */
+  font-weight: 600;
+  color: #333;
+}
+
+.auth-wrapper h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 60px;
+  border-radius: 12px;
+  background: #7A2527;
+}
+
+.auth-wrapper form#login{
+  margin-top: 30px;
+}
+.auth-wrapper form#demo {
+  margin-top: 10px;
+}
+
+/* Error message styling */
+.alert {
+  padding: 12px 15px;
+  margin: 15px 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+/* Unified input box styling */
+.auth-input-box {
+  height: 52px;
+  margin: 18px 0;
+}
+
+.auth-input-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding: 0 15px;
+  font-size: 1.0625rem; /* Was 17px, now scales with user's font size */
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.auth-input-box input:focus,
+.auth-input-box input:valid {
+  border-color: #7A2527;
+}
+
+.auth-wrapper form .policy {
+  display: flex;
+  align-items: center;
+}
+
+.auth-wrapper form h3 {
+  color: #707070;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+/* Unified button styling */
+.auth-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-button input {
+  color: #fff;
+  letter-spacing: 1px;
+  border: none;
+  background: #7A2527;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  font-size: 17px;
+  font-weight: 400;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.auth-button input:hover {
+  background: #b95657;
+}
+
+.auth-wrapper form .text h3 {
+  color: #333;
+  width: 100%;
+  text-align: center;
+}
+
+.auth-wrapper form .text h3 a {
+  color: rgb(181, 42, 41);
+  text-decoration: none;
+}
+
+.auth-wrapper form .text h3 a:hover {
+  text-decoration: underline;
+}
+
+/* Auth page link styling */
+.auth-wrapper p a {
+  color: rgb(181, 42, 41) !important;
+  text-decoration: none;
+}
+
+.auth-wrapper p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+    justify-content: flex-start;
+    padding-top: 5px;
+  }
+
+  .header-section {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    flex-direction: column;
+  }
+
+  .logo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .auth-title {
+    font-size: 2.25rem; /* Was 36px, now scales with user's font size */
+    text-align: center;
+    margin-top: -5px; /* Reduce gap between logo and title */
+  }
+
+  .auth-wrapper {
+    max-width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+
+  .auth-wrapper h2 {
+    font-size: 1.25rem; /* Was 20px, now scales with user's font size */
+  }
+
+  .auth-wrapper form {
+    margin-top: 20px; /* Reduce from 30px */
+  }
+
+  .auth-input-box {
+    height: 45px;
+    margin: 12px 0; /* Reduce from 15px */
+  }
+
+  .auth-input-box input {
+    font-size: 1rem; /* Was 16px, now scales with user's font size */
+    padding: 0 12px;
+  }
+
+  .auth-button input {
+    font-size: 1rem; /* Was 16px, now scales with user's font size */
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 375px) {
+  body {
+    padding: 8px;
+    padding-top: 5px;
+  }
+
+  .header-section {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+
+  .auth-title {
+    font-size: 2rem; /* Was 32px, now scales with user's font size */
+    margin-top: -3px;
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .auth-wrapper {
+    padding: 16px;
+    margin-bottom: 5px;
+  }
+
+  .auth-wrapper form {
+    margin-top: 15px;
+  }
+
+  .auth-input-box {
+    height: 42px;
+    margin: 10px 0;
+  }
+}

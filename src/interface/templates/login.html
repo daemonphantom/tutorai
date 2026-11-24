@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login • TutorAI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style_auth.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/logo-book.png') }}">
+</head>
+
+<body>
+  <div class="header-section">
+    <img src="{{ url_for('static', filename='images/logo-book.png') }}" alt="TutorAI Logo" class="logo">
+    <h1 class="auth-title">TutorAI</h1>
+  </div>
+<div class="auth-wrapper">
+  <h2>Login</h2>
+
+   <!-- Fehlermeldung anzeigen -->
+   {% with messages = get_flashed_messages(with_categories=true) %}
+   {% if messages %}
+     {% for category, message in messages %}
+       {% if 'login' in category %}
+         <div class="alert alert-{{ category.split('_')[1] }}" role="alert">
+           {{ message }}
+         </div>
+       {% endif %}
+     {% endfor %}
+   {% endif %}
+   {% endwith %}
+
+  <form method="POST" action="/login" id="login">
+    <div class="auth-input-box">
+      <input type="text" id="username" name="username" placeholder="Benutzername" required>
+    </div>
+    <div class="auth-input-box">
+      <input type="password" id="password" name="password" placeholder="Passwort" required>
+    </div>
+    <div class="auth-input-box auth-button">
+      <input type="submit" value="Einloggen">
+    </div>
+  </form>
+  <form method="POST" id="tu-acc" onsubmit="return false;">
+    <div class="auth-input-box auth-button">
+      <input type="submit" value="TU-Login" style="background-color: #7A2527; opacity: 0.7; cursor: not-allowed;"
+        onmouseover="this.style.backgroundColor='#7A2527'; this.style.opacity='0.6'" 
+        onmouseout="this.style.backgroundColor='#7A2527'; this.style.opacity='0.7'">
+    </div>
+  </form>
+  <!-- Demo Button -->
+  <form method="POST" action="/demo" id="demo">
+    <div class="auth-input-box auth-button">
+      <input type="submit" value="Demo-Zugang" style="background-color: #6c757d;"
+        onmouseover="this.style.backgroundColor='#868e96'" 
+        onmouseout="this.style.backgroundColor='#6c757d'">
+    </div>
+  </form>
+
+  <div class="text">
+    <p>Du hast noch keinen Account? <a href="register" style="color: rgb(181, 42, 41);">Registrieren</a></p>
+  </div>
+</div>
+</body>
+
+</html>

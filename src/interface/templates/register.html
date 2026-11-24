@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register • TutorAI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style_auth.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/logo-book.png') }}">
+</head>
+
+<body>
+  <div class="header-section">
+    <img src="{{ url_for('static', filename='images/logo-book.png') }}" alt="TutorAI Logo" class="logo">
+    <h1 class="auth-title">TutorAI</h1>
+  </div>
+<div class="auth-wrapper">
+    <h2>Registrieren</h2>
+
+     <!-- Fehlermeldung anzeigen -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      {% if 'register' in category %}
+        <div class="alert alert-{{ category.split('_')[1] }}" role="alert">
+          {{ message }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% endwith %}
+  
+    <form method="POST" action="/register">
+        <div class="auth-input-box">
+            <label for="username"></label>
+            <input type="text" id="username" name="username" placeholder="Benutzername" required>
+        </div>
+        <div class="auth-input-box">
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="Passwort" required>
+        </div>
+        <div class="auth-input-box auth-button">
+            <input type="submit" value="Registrieren">
+        </div>
+    </form>
+    <p>Du hast schon einen Account? <a href="login" style="color: rgb(181, 42, 41);">Login</a></p>
+</div>
+</body>
+
+</html>
